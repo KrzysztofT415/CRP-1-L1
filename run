@@ -1,0 +1,18 @@
+#!/bin/bash
+input=""
+it=0
+
+for f in "$@"
+do
+    input+=$f
+    if [ $it -eq 1 ]
+    then
+        input+=' '
+    else
+        input+="\n"
+        it=1
+    fi
+    
+done
+
+echo -e $input | npx ts-node rsa.ts
